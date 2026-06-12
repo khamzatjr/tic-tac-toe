@@ -1,0 +1,189 @@
+.mode-container {
+  max-width: 520px;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mode-title {
+  font-family: var(--font-brush);
+  font-size: 3.5rem;
+  color: var(--ink);
+  transform: rotate(-1deg);
+}
+
+.mode-subtitle {
+  font-size: 1.3rem;
+  color: var(--ink-light);
+  margin-top: -1.5rem;
+}
+
+/* Переключатель режима */
+.mode-toggle {
+  display: flex;
+  gap: 0;
+  border: 2.5px solid var(--ink);
+  overflow: hidden;
+  width: 100%;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  background: transparent;
+  border: none;
+  border-right: 2px solid var(--ink);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mode-btn:last-child {
+  border-right: none;
+}
+
+.mode-btn.active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.mode-btn:not(.active):hover {
+  background: var(--paper-dark);
+}
+
+/* Сложность */
+.difficulty-block {
+  width: 100%;
+  display: none;
+}
+
+.difficulty-block.visible {
+  display: block;
+}
+
+.field-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.difficulty-toggle {
+  display: flex;
+  border: 2px solid var(--ink);
+  overflow: hidden;
+}
+
+.diff-btn {
+  flex: 1;
+  padding: 0.6rem;
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  background: transparent;
+  border: none;
+  border-right: 2px solid var(--ink);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.diff-btn:last-child {
+  border-right: none;
+}
+
+.diff-btn.active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Поля игроков */
+.players-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.player-field {
+  width: 100%;
+}
+
+.x-mark {
+  color: var(--red-ink);
+  font-family: var(--font-brush);
+}
+
+.o-mark {
+  color: var(--blue-ink);
+  font-family: var(--font-brush);
+}
+
+.name-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--ink);
+  background: rgba(255,255,255,0.6);
+  border: 2.5px solid var(--ink);
+  border-radius: 0;
+  outline: none;
+  transition: background 0.2s;
+}
+
+.name-input:focus {
+  background: white;
+}
+
+.name-input::placeholder {
+  color: var(--ink-light);
+  opacity: 0.6;
+}
+
+.vs-divider {
+  font-family: var(--font-brush);
+  font-size: 2rem;
+  color: var(--ink-light);
+  transform: rotate(-2deg);
+}
+
+.ai-field {
+  display: none;
+}
+
+.ai-field.visible {
+  display: block;
+}
+
+.ai-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 0.8rem 1rem;
+  border: 2.5px dashed var(--ink-light);
+  color: var(--ink-light);
+  background: rgba(255,255,255,0.3);
+}
+
+/* Кнопка старт */
+.start-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.6rem;
+  margin-top: 0.5rem;
+}
+
+/* Ошибка */
+.error-msg {
+  font-size: 1.1rem;
+  color: var(--red-ink);
+  min-height: 1.5rem;
+  transform: rotate(-0.5deg);
+}

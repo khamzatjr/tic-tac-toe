@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Caveat+Brush&display=swap');
+
+:root {
+  --paper: #f7f4ee;
+  --paper-dark: #ede9df;
+  --ink: #1a1a2e;
+  --ink-light: #4a4a6a;
+  --pencil: #5c5c8a;
+  --red-ink: #c0392b;
+  --blue-ink: #2471a3;
+  --line-color: #c8c4b8;
+  --shadow: rgba(0,0,0,0.08);
+  --font-hand: 'Caveat', cursive;
+  --font-brush: 'Caveat Brush', cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-hand);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--line-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  min-height: 100vh;
+  color: var(--ink);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-hand);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.btn {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 10px 28px;
+  border: 2.5px solid var(--ink);
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.15s ease;
+  transform: rotate(-0.5deg);
+}
+
+.btn:hover {
+  transform: rotate(0.5deg) scale(1.03);
+  background: var(--paper-dark);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-primary:hover {
+  background: var(--pencil);
+}
+
+.page-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid var(--ink);
+  background: rgba(247, 244, 238, 0.85);
+  backdrop-filter: blur(4px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav .logo {
+  font-family: var(--font-brush);
+  font-size: 1.8rem;
+  color: var(--ink);
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  transition: color 0.2s;
+}
+
+nav ul li a:hover {
+  color: var(--ink);
+}
+
+.underline-hand {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-hand::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--red-ink);
+  border-radius: 2px;
+  transform: rotate(-0.5deg) scaleX(1.02);
+}
+
+body {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.dark {
+  --paper: #1a1a2e;
+  --paper-dark: #16213e;
+  --ink: #e8e4d9;
+  --ink-light: #a0a0c0;
+  --pencil: #8888aa;
+  --red-ink: #e05555;
+  --blue-ink: #4a9fd4;
+  --line-color: #2a2a4a;
+  --shadow: rgba(0,0,0,0.3);
+}
+
+.theme-btn {
+  font-size: 1.4rem;
+  background: none;
+  border: 2px solid var(--ink);
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border-radius: 2px;
+}
+
+.theme-btn:hover {
+  transform: rotate(20deg) scale(1.1);
+}

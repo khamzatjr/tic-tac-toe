@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выбор режима — X & O</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mode.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">X & O</a>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="mode.html">Играть</a></li>
+      <li><a href="records.html">Рекорды</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <div class="mode-container">
+
+      <h1 class="mode-title">Новая игра</h1>
+      <p class="mode-subtitle">Выбери режим и введи имена</p>
+
+      <!-- Выбор режима -->
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="btn-pvp" onclick="setMode('pvp')">
+          👥 Два игрока
+        </button>
+        <button class="mode-btn" id="btn-ai" onclick="setMode('ai')">
+          🤖 Против ИИ
+        </button>
+      </div>
+
+      <!-- Сложность (только для ИИ) -->
+      <div class="difficulty-block" id="difficulty-block">
+        <p class="field-label">Сложность</p>
+        <div class="difficulty-toggle">
+          <button class="diff-btn active" id="diff-easy" onclick="setDifficulty('easy')">Лёгкий</button>
+          <button class="diff-btn" id="diff-hard" onclick="setDifficulty('hard')">Сложный</button>
+        </div>
+      </div>
+
+      <!-- Никнеймы -->
+      <div class="players-block">
+
+        <div class="player-field">
+          <label class="field-label" for="player1">
+            <span class="x-mark">✕</span> Игрок 1
+          </label>
+          <input
+            type="text"
+            id="player1"
+            class="name-input"
+            placeholder="Твоё имя..."
+            maxlength="16"
+          >
+        </div>
+
+        <div class="vs-divider" id="vs-divider">vs</div>
+
+        <div class="player-field" id="player2-field">
+          <label class="field-label" for="player2">
+            <span class="o-mark">◯</span> Игрок 2
+          </label>
+          <input
+            type="text"
+            id="player2"
+            class="name-input"
+            placeholder="Имя друга..."
+            maxlength="16"
+          >
+        </div>
+
+        <div class="player-field ai-field" id="ai-field">
+          <label class="field-label">
+            <span class="o-mark">◯</span> Противник
+          </label>
+          <div class="ai-name">🤖 Компьютер</div>
+        </div>
+
+      </div>
+
+      <!-- Кнопка старт -->
+      <button class="btn btn-primary start-btn" onclick="startGame()">
+        Начать игру →
+      </button>
+
+      <p class="error-msg" id="error-msg"></p>
+
+    </div>
+
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/mode.js"></script>
+</body>
+</html>

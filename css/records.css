@@ -1,0 +1,148 @@
+.records-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.records-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.records-title {
+  font-family: var(--font-brush);
+  font-size: 3.5rem;
+  color: var(--ink);
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+/* Статистика */
+.stats-block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.stat-card {
+  border: 2.5px solid var(--ink);
+  padding: 1.2rem 1rem;
+  text-align: center;
+  background: rgba(255,255,255,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transform: rotate(-0.5deg);
+  transition: transform 0.2s;
+}
+
+.stat-card:nth-child(2) { transform: rotate(0.7deg); }
+.stat-card:nth-child(3) { transform: rotate(-0.3deg); }
+.stat-card:nth-child(4) { transform: rotate(0.5deg); }
+
+.stat-card:hover { transform: rotate(0deg) translateY(-3px); }
+
+.stat-number {
+  font-family: var(--font-brush);
+  font-size: 2.8rem;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--ink-light);
+}
+
+/* Пустое состояние */
+.records-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  border: 2.5px dashed var(--ink-light);
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 3rem;
+}
+
+.empty-text {
+  font-size: 1.3rem;
+  color: var(--ink-light);
+}
+
+/* Таблица */
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  display: none;
+}
+
+.records-table.visible {
+  display: table;
+}
+
+.records-table thead tr {
+  border-bottom: 2.5px solid var(--ink);
+}
+
+.records-table th {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  padding: 0.8rem 1rem;
+  text-align: left;
+}
+
+.records-table td {
+  font-size: 1.2rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1.5px solid var(--line-color);
+  color: var(--ink);
+}
+
+.records-table tbody tr:hover {
+  background: rgba(255,255,255,0.6);
+}
+
+.winner-cell {
+  font-weight: 600;
+}
+
+.winner-cell.win-x {
+  color: var(--red-ink);
+}
+
+.winner-cell.win-o {
+  color: var(--blue-ink);
+}
+
+.winner-cell.draw {
+  color: var(--ink-light);
+}
+
+.mode-badge {
+  font-size: 0.95rem;
+  padding: 2px 10px;
+  border: 1.5px solid var(--ink-light);
+  color: var(--ink-light);
+  display: inline-block;
+}
+
+@media (max-width: 600px) {
+  .stats-block {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .records-table th:last-child,
+  .records-table td:last-child {
+    display: none;
+  }
+}

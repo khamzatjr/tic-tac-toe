@@ -1,0 +1,244 @@
+.game-container {
+  max-width: 480px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+/* Статус */
+.game-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 2.5px solid var(--ink);
+  background: rgba(255,255,255,0.5);
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: opacity 0.3s;
+}
+
+.player-info.inactive {
+  opacity: 0.35;
+}
+
+.player-symbol {
+  font-family: var(--font-brush);
+  font-size: 1.8rem;
+}
+
+.player-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.player-score {
+  font-family: var(--font-brush);
+  font-size: 2rem;
+  color: var(--ink);
+  min-width: 2rem;
+  text-align: center;
+}
+
+.turn-indicator {
+  text-align: center;
+}
+
+.turn-text {
+  font-size: 0.9rem;
+  color: var(--ink-light);
+}
+
+.turn-name {
+  font-family: var(--font-brush);
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
+/* Поле */
+.board-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  width: 300px;
+  height: 300px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  border: 2.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-brush);
+  font-size: 3.5rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  position: relative;
+  user-select: none;
+}
+
+.cell:hover:not(.taken) {
+  background: rgba(255,255,255,0.7);
+}
+
+.cell.taken {
+  cursor: default;
+}
+
+.cell.x {
+  color: var(--red-ink);
+}
+
+.cell.o {
+  color: var(--blue-ink);
+}
+
+/* Убираем внешние границы */
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) { border-top: none; }
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) { border-bottom: none; }
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) { border-left: none; }
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) { border-right: none; }
+
+/* Анимация появления символа */
+.cell.pop {
+  animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+  0%   { transform: scale(0.5); opacity: 0.3; }
+  70%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Победная линия */
+.win-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.win-line line {
+  stroke: var(--red-ink);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  transition: stroke-dashoffset 0.4s ease;
+}
+
+.win-line line.draw {
+  stroke-dashoffset: 0;
+}
+
+/* Оверлей результата */
+.result-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.result-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.result-card {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  padding: 2.5rem 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  transform: rotate(-1deg);
+  max-width: 320px;
+  width: 90%;
+}
+
+.result-emoji {
+  font-size: 3rem;
+}
+
+.result-text {
+  font-size: 1.2rem;
+  color: var(--ink-light);
+}
+
+.result-name {
+  font-family: var(--font-brush);
+  font-size: 2.8rem;
+  color: var(--ink);
+}
+
+.result-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Кнопки управления */
+.game-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Призрачный символ при наведении */
+.cell:not(.taken):hover::after {
+  content: attr(data-hint);
+  position: absolute;
+  font-family: var(--font-brush);
+  font-size: 3.5rem;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.cell.hint-x:not(.taken):hover::after {
+  color: var(--red-ink);
+}
+
+.cell.hint-o:not(.taken):hover::after {
+  color: var(--blue-ink);
+}

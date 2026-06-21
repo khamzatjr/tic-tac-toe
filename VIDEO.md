@@ -10,7 +10,7 @@
 
 Можно отсканировать QR-код камерой телефона для быстрого перехода к видео:
 
-![video-qr.png](video-qr.png)
+![img/video-qr.png](video-qr.png)
 
 ---
 
